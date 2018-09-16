@@ -4,7 +4,15 @@
   "description": "A simple module to add previous and next paging functionality to your component",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:component": "babel ./src/components --out-dir ./src/build",
+    "build:cssdev": "yarn build:cssdev:master",
+    "build:cssdev:master": "sass ./src/scss/master.scss ./src/css/master.min.css",
+    "build:css": "yarn build:css:master",
+    "build:css:master": "sass ./src/scss/master.scss ./src/css/master.min.css -s compressed",
+    "build:dev": "yarn build:cssdev && yarn build:component && webpack --progress",
+    "build": "yarn build:css && yarn build:component && webpack --progress -p",
+    "build:dist": "copyfiles -u 1 src/css/* src/css/fonts/* src/images/* src/images/**/* src/js/* src/* dist",
+    "build:final": "yarn build:css && yarn build:component && webpack --progress -p && yarn build:dist"
   },
   "repository": {
     "type": "git",
@@ -22,5 +30,27 @@
   "bugs": {
     "url": "https://github.com/mariolo1985/Simply-Paging/issues"
   },
-  "homepage": "https://github.com/mariolo1985/Simply-Paging#readme"
+  "homepage": "https://github.com/mariolo1985/Simply-Paging#readme",
+  "dependencies": {
+    "react": "^16.5.1",
+    "scroll-callback": "^0.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "copyfiles": "^2.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.10.0",
+    "prop-types": "^15.6.1",
+    "webpack": "^3.8.1"
+  }
 }
