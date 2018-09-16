@@ -1,18 +1,16 @@
 {
   "name": "simply-paging",
-  "version": "0.0.1",
+  "version": "0.0.13",
   "description": "A simple module to add previous and next paging functionality to your component",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build:component": "babel ./src/components --out-dir ./src/build",
-    "build:cssdev": "yarn build:cssdev:master",
-    "build:cssdev:master": "sass ./src/scss/master.scss ./src/css/master.min.css",
+    "build:copytodist": "copyfiles -u 1 build/* build/components/** src/scss/* dist",
+    "build:component": "babel --minified ./src --out-dir ./build",
+    "build:component:dev": "babel ./src --out-dir ./build",
     "build:css": "yarn build:css:master",
-    "build:css:master": "sass ./src/scss/master.scss ./src/css/master.min.css -s compressed",
-    "build:dev": "yarn build:cssdev && yarn build:component && webpack --progress",
-    "build": "yarn build:css && yarn build:component && webpack --progress -p",
-    "build:dist": "copyfiles -u 1 src/css/* src/css/fonts/* src/images/* src/images/**/* src/js/* src/* dist",
-    "build:final": "yarn build:css && yarn build:component && webpack --progress -p && yarn build:dist"
+    "build:css:master": "sass -t compressed ./src/scss/master.scss ./dist/css/master.min.css",
+    "build:dev": "yarn build:css && yarn build:component:dev && yarn build:copytodist",
+    "build": "yarn build:css && yarn build:component && yarn build:copytodist"
   },
   "repository": {
     "type": "git",
@@ -33,7 +31,8 @@
   "homepage": "https://github.com/mariolo1985/Simply-Paging#readme",
   "dependencies": {
     "react": "^16.5.1",
-    "scroll-callback": "^0.1.1"
+    "prop-types": "^15.6.1",
+    "scroll-callback": "^0.1.11"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -50,7 +49,6 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.10.0",
-    "prop-types": "^15.6.1",
     "webpack": "^3.8.1"
   }
 }
