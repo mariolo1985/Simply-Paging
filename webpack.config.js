@@ -2,21 +2,15 @@ const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        master: [
-            "./src/index.js"
+        index: [
+            "./build/index.js"
+        ],
+        SimplyPaging: [
+            './build/components/SimplyPaging/SimplyPaging.js'
         ]
     },
     output: {
         path: __dirname + "/dist/",
-        filename: "index.js"
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loaders: 'babel-loader'
-            }
-        ]
+        filename: "[name].js"
     }
 };
