@@ -2,17 +2,18 @@
   "name": "simply-paging",
   "version": "0.0.1",
   "description": "A simple module to add previous and next paging functionality to your component",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build:component": "babel ./src/components --out-dir ./src/build",
     "build:cssdev": "yarn build:cssdev:master",
-    "build:cssdev:master": "sass ./src/scss/master.scss ./src/css/master.min.css",
+    "build:cssdev:master": "sass ./src/scss/master.scss ./dist/css/master.min.css",
     "build:css": "yarn build:css:master",
-    "build:css:master": "sass ./src/scss/master.scss ./src/css/master.min.css -s compressed",
+    "build:css:master": "sass ./src/scss/master.scss ./dist/css/master.min.css -s compressed",
     "build:dev": "yarn build:cssdev && yarn build:component && webpack --progress",
     "build": "yarn build:css && yarn build:component && webpack --progress -p",
     "build:dist": "copyfiles -u 1 src/css/* src/css/fonts/* src/images/* src/images/**/* src/js/* src/* dist",
-    "build:final": "yarn build:css && yarn build:component && webpack --progress -p && yarn build:dist"
+    "build:final": "yarn build:css && yarn build:component && webpack --progress -p && yarn build:dist",
+    "pack": "webpack --progress -p"
   },
   "repository": {
     "type": "git",
