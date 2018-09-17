@@ -30,19 +30,16 @@
             }
         }
         .simply-paging-control {
+            position: absolute;
+            left: 50%;
             transform: rotate(90deg);
+            margin: 0;
         }
         .simply-page-prev {
-            position: absolute;
             top: 12px;
-            left: 50%;
-            margin: 0;
         }
         .simply-page-next {
-            position: absolute;
             bottom: 12px;
-            left: 50%;
-            margin: 0;
         }
     } // default - left/right
     .simply-paging-control-wrapper {
@@ -66,14 +63,15 @@
 .simply-paging-control-wrapper {
     svg {
         width: 24px;
+        height: 38px;
     }
 }
 
 .simply-paging-control {
     display: inline-block;
-    padding: 24px 12px;
-    box-shadow: 0px 0px 1px 2px rgba(84, 80, 80, 0.5);
-    border-radius: 4px;
+    height: 38px;
+    padding: 12px 6px;
+    box-shadow: 0px 0px 0px 2px rgba(171, 171, 171, 0.5);
     background: rgb(84, 80, 80);
     cursor: pointer;
     &.disabled {
