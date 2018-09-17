@@ -38,6 +38,14 @@ export default app;
 
 This will wrap your `.page` inside a content box of **100vh**. Paging controls will be automatically added.
 
+## Styles
+
+At the moment, SCSS files can be imported at
+
+```javascript
+@import '../../node_modules/simply-paging/dist/scss/master.scss';
+```
+
 ## Functions
 
 N/A
@@ -68,6 +76,7 @@ Each children node inside ```<SimplyPaging/>``` component will be in its own pag
 
 ## Future Features
 
+- [ ] Better way to import styles
 - [ ] Support left/right paging
 
 ## Feature Request
