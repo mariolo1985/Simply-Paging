@@ -11,16 +11,31 @@ class SimplyPaging extends Component {
             isLoaded: false,
             pageCount: 0,
             pageIndex: 0,
-            pageTop: 0
+            pageTop: 0,
+            vertical: props.vertical === undefined ? true : props.vertical
         };
     }
 
     componentDidMount = () => {
         this.setState({
-            pageCount: getClass('simply-paging').length
+            pageCount: getClass('simply-page').length
         });
     }
 
+    // Svgs
+    getLeftArrow = () => (
+        <svg viewBox="0 0 320 512">
+            <path fill="#FFFFFF" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z" />
+        </svg>
+    );
+
+    getRightArrow = () => (
+        <svg viewBox="0 0 320 512">
+            <path fill="#FFFFFF" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+        </svg>
+    );
+
+    // Helpers
     getSimplyPageElement = (index) => {
         return getClass('simply-page')[index];
     }
@@ -29,6 +44,26 @@ class SimplyPaging extends Component {
         return this.getSimplyPageElement(index).getBoundingClientRect().top;
     }
 
+    getPrevControlClass = () => {
+        const { pageIndex } = this.state;
+        if (pageIndex === 0) {
+            return 'simply-paging-control simply-page-prev disabled';
+        }
+
+        return 'simply-paging-control simply-page-prev';
+    }
+
+    getNextControlClass = () => {
+        const { pageCount, pageIndex } = this.state;
+
+        if (pageIndex < pageCount - 1) {
+            return 'simply-paging-control simply-page-next';
+        }
+
+        return 'simply-paging-control simply-page-next disabled';
+    }
+
+    // Clicks
     handlePrevClick = () => {
         const { pageIndex } = this.state;
         if (pageIndex !== 0) {
@@ -46,7 +81,7 @@ class SimplyPaging extends Component {
 
     handleNextClick = () => {
         const { pageCount, pageIndex } = this.state;
-        if (pageIndex <= pageCount) {
+        if (pageIndex < pageCount - 1) {
             window.scrollTo({
                 top: this.getElementTop(pageIndex + 1)
             });
@@ -58,7 +93,7 @@ class SimplyPaging extends Component {
     }
 
     render() {
-        const { pageIndex } = this.state;
+        const { pageIndex, vertical } = this.state;
         return (
             <div className='simply-paging-container'>
                 {
@@ -70,9 +105,17 @@ class SimplyPaging extends Component {
                         );
                     })
                 }
-                <div className='simply-paging-controls'>
-                    <div className='simply-page-prev' onClick={this.handlePrevClick}>PREV</div>
-                    <div className='simply-page-next' onClick={this.handleNextClick}>NEXT</div>
+                <div className={`simply-paging-controls${vertical ? ' vertical' : ''} clear`}>
+                    <div className='simply-paging-control-wrapper prev'>
+                        <div className={this.getPrevControlClass()} onClick={this.handlePrevClick}>
+                            {this.getLeftArrow()}
+                        </div>
+                    </div>
+                    <div className='simply-paging-control-wrapper next'>
+                        <div className={this.getNextControlClass()} onClick={this.handleNextClick}>
+                            {this.getRightArrow()}
+                        </div>
+                    </div>
                 </div>
             </div>
         );
