@@ -30,7 +30,7 @@ const app = ({
         })
     }
     </SimplyPaging>
-)
+);
 
 export default app;
 
@@ -40,22 +40,19 @@ This will wrap your `.page` inside a content box of **100vh**. Paging controls w
 
 ## Styles
 
-At the moment, SCSS files can be imported at
+At the moment, SCSS files has to be imported at
 
 ```javascript
 @import '../../node_modules/simply-paging/dist/scss/master.scss';
 ```
+
+or copy from ```'../../node_modules/simply-paging/dist/css/master.min.css'``` directlly to your css.
 
 ## Functions
 
 N/A
 
 ## Parameters
-```javascript
-scrollCallback(callback, waitDuration);
-scrollCallbackWithElement(callback, waitDuration, elementId);
-callbackAtElement(callback, waitDuration, elementId);
-```
 
 | Parameter Name   | Type   | Required   | Default Value   | Description   |
 | --- | --- | --- | --- | --- |
