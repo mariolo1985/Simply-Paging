@@ -1,6 +1,6 @@
 # Simply Paging
 
-A simple React module to add `PREVIOUS` and `NEXT` paging functionality to your component
+A simple React module to add `PREVIOUS` and `NEXT` paging functionality to your component.
 
 A work-in-progress ReactJS module.
 
@@ -40,13 +40,19 @@ This will wrap your `.page` inside a content box of **100vh**. Paging controls w
 
 ## Styles
 
-At the moment, SCSS files has to be imported at
+At the moment, styles has to be add one of two ways:
+
+- Import the SCSS file
 
 ```javascript
-@import '../../node_modules/simply-paging/dist/scss/master.scss';
+@import '/node_modules/simply-paging/dist/scss/master.scss';
 ```
 
-or copy from ```'../../node_modules/simply-paging/dist/css/master.min.css'``` directlly to your css.
+- Copy the CSS directly from the following file
+
+```
+/node_modules/simply-paging/dist/css/master.min.css
+```
 
 ## Functions
 
@@ -75,6 +81,7 @@ Each children node inside ```<SimplyPaging/>``` component will be in its own pag
 
 - [ ] Better way to import styles
 - [ ] Support left/right paging
+- [ ] Handle paging control styles on refresh (disabling, active...etc)
 
 ## Feature Request
 
