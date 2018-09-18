@@ -88,7 +88,7 @@ Each children node inside ```<SimplyPaging/>``` component will be in its own pag
 
 - [ ] Better way to import styles
 - [ ] Support left/right paging
-- [ ] Handle paging control styles on refresh (disabling, active...etc)
+- [ ] Handle paging control on refresh (styling, location, resume paging, ...etc)
 
 ## Feature Request
 
