@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import { getClass } from 'scroll-callback';
 import SimplyPage from './SimplyPage';
 
 class SimplyPaging extends Component {
@@ -18,7 +16,7 @@ class SimplyPaging extends Component {
 
     componentDidMount = () => {
         this.setState({
-            pageCount: getClass('simply-page').length
+            pageCount: this.getClass('simply-page').length
         });
     }
 
@@ -46,8 +44,12 @@ class SimplyPaging extends Component {
     );
 
     // Helpers
+    getClass = (className) => {
+        return document.querySelectorAll(`.${className}`);
+    }
+
     getSimplyPageElement = (index) => {
-        return getClass('simply-page')[index];
+        return this.getClass('simply-page')[index];
     }
 
     getElementTop = (index) => {
