@@ -97,3 +97,5 @@ Please message hello@websitesbymario.com for feature requests.
 ## Bug Report
 
 Please message hello@websitesbymario.com to report bugs.
+
+[Bug List](https://github.com/mariolo1985/Simply-Paging/issues)
