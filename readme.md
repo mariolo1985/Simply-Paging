@@ -12,6 +12,13 @@ Built by: [Mario Lo](https://github.com/mariolo1985)
 yarn add simply-paging
 ```
 
+## Demo
+
+![Demo][demo]
+
+[demo]: https://raw.githubusercontent.com/mariolo1985/Simply-Paging/fix/controlstyle/demo/images/demo_sm.gif "Simply Paging Demo"
+
+
 ## Example
 
 ```javascript
