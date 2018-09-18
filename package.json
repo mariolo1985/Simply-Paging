@@ -1,7 +1,7 @@
 {
   "name": "simply-paging",
-  "version": "0.0.25",
-  "description": "A simple module to add previous and next paging functionality to your component",
+  "version": "0.1.0",
+  "description": "A simple ReactJS component that adds paging functionality to your component",
   "main": "dist/index.js",
   "scripts": {
     "bounce": "rm -rf node_modules;yarn",
@@ -17,11 +17,13 @@
     "url": "git+https://github.com/mariolo1985/Simply-Paging.git"
   },
   "keywords": [
-    "react",
+    "carousel",
+    "javascript",
+    "next",
     "paging",
     "previous",
-    "next",
-    "javascript"
+    "react",
+    "ReactJS"
   ],
   "author": "Mario Lo <hello@websitesbymario.com>",
   "license": "ISC",
@@ -31,8 +33,7 @@
   "homepage": "https://github.com/mariolo1985/Simply-Paging#readme",
   "dependencies": {
     "react": "^16.5.1",
-    "prop-types": "^15.6.1",
-    "scroll-callback": "^0.1.11"
+    "prop-types": "^15.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
