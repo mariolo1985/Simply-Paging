@@ -1,16 +1,16 @@
 {
   "name": "simply-paging",
-  "version": "0.0.21",
+  "version": "0.0.25",
   "description": "A simple module to add previous and next paging functionality to your component",
   "main": "dist/index.js",
   "scripts": {
-    "build:copytodist": "copyfiles -u 1 build/* build/components/** src/scss/* dist",
+    "bounce": "rm -rf node_modules;yarn",
     "build:component": "babel --minified ./src --out-dir ./build",
     "build:component:dev": "babel ./src --out-dir ./build",
-    "build:css": "yarn build:css:master",
-    "build:css:master": "sass -t compressed ./src/scss/master.scss ./dist/css/master.min.css",
-    "build:dev": "yarn build:css && yarn build:component:dev && yarn build:copytodist",
-    "build": "yarn build:css && yarn build:component && yarn build:copytodist"
+    "build:css": "sass -s compressed ./src/scss/master.scss ./dist/css/master.min.css",
+    "build:dev": "yarn build:css && yarn build:component:dev && yarn copytodist",
+    "build": "yarn build:css && yarn build:component && yarn copytodist",
+    "copytodist": "copyfiles -u 1 build/* build/components/SimplyPaging/* src/scss/* dist"
   },
   "repository": {
     "type": "git",
@@ -48,7 +48,6 @@
     "eslint-config-defaults": "^9.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.10.0",
-    "webpack": "^3.8.1"
+    "eslint-plugin-react": "^7.10.0"
   }
 }
