@@ -5,6 +5,14 @@
     clear: both;
 }
 
+.simply-paging-container {
+    &:not(.vertical) {
+        .simply-page {
+            float: left;
+        }
+    }
+}
+
 // each page content
 .simply-page {
     display: block;
