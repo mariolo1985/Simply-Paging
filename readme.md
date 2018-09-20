@@ -1,6 +1,6 @@
 # Simply Paging
 
-A simple React module to add `PREVIOUS` and `NEXT` paging functionality to your component.
+A simple ReactJS component that adds paging functionality to your project.
 
 A work-in-progress ReactJS module.
 
