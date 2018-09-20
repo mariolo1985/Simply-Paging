@@ -10,13 +10,15 @@ class SimplyPaging extends Component {
             hasClickedNext: false,
             pageCount: 0,
             pageIndex: 0,
-            vertical: props.vertical
+            pageWidth: 0
         };
     }
 
     componentDidMount = () => {
+        const { vertical } = this.props;
         this.setState({
-            pageCount: this.getClass('simply-page').length
+            pageCount: this.getClassElementLength('simply-page'),
+            pageWidth: vertical ? this.getClassElementWidth('simply-paging-container') : this.getClassElementWidth('simply-paging-container') / this.props.tilesPerPage
         });
     }
 
@@ -24,7 +26,7 @@ class SimplyPaging extends Component {
         const { pageIndex } = this.state;
         if (prevState.pageIndex !== pageIndex) {
             window.scrollTo({
-                top: window.scrollY + this.getElementTop(pageIndex),
+                top: window.scrollY + this.getElementTopByIndex(pageIndex),
                 behavior: 'smooth'
             });
         }
@@ -48,12 +50,20 @@ class SimplyPaging extends Component {
         return document.querySelectorAll(`.${className}`);
     }
 
-    getSimplyPageElement = (index) => {
+    getClassElementLength = (className) => {
+        return this.getClass(className).length;
+    }
+
+    getClassElementWidth = (className) => {
+        return this.getClass(className).length > 0 ? this.getClass(className)[0].clientWidth : 0;
+    }
+
+    getSimplyPageElementByIndex = (index) => {
         return this.getClass('simply-page')[index];
     }
 
-    getElementTop = (index) => {
-        return this.getSimplyPageElement(index).getBoundingClientRect().top;
+    getElementTopByIndex = (index) => {
+        return this.getSimplyPageElementByIndex(index).getBoundingClientRect().top;
     }
 
     isPrevControlDisabled = () => {
@@ -105,17 +115,19 @@ class SimplyPaging extends Component {
     }
 
     render() {
-        const { pageIndex, vertical } = this.state;
-        const { children } = this.props;
+        const { pageIndex, pageWidth } = this.state;
+        const { children, vertical } = this.props;
         return (
-            <div className='simply-paging-container'>
-                {
-                    React.Children.map(children, (child, key) => (
-                        <SimplyPage active={pageIndex === key} key={key}>
-                            {child}
-                        </SimplyPage>
-                    ))
-                }
+            <div className={`simply-paging-container${vertical ? ' vertical' : ''}`}>
+                <div className={`simply-paging-overflow${vertical ? '' : ' clear'}`}>
+                    {
+                        React.Children.map(children, (child, key) => (
+                            <SimplyPage active={pageIndex === key} key={key} pageWidth={pageWidth}>
+                                {child}
+                            </SimplyPage>
+                        ))
+                    }
+                </div>
                 <div className={`simply-paging-controls${vertical ? ' vertical' : ''} clear`}>
                     <div className='simply-paging-control-wrapper prev'>
                         <div className={this.getPrevControlClass()} onClick={this.handlePrevClick}>
@@ -134,6 +146,7 @@ class SimplyPaging extends Component {
 }
 
 SimplyPaging.defaultProps = {
+    tilesPerPage: 5,
     vertical: true
 };
 
