@@ -2,15 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SimplyPage = ({
-    children
+    active,
+    children,
+    pageWidth
 }) => (
-        <div className='simply-page'>
+        <div className={`simply-page${active ? ' active' : ''}`} style={{ width: `${pageWidth}px` }}>
             {children}
         </div>
-);
+    );
+
+SimplyPage.defaultProps = {
+    active: false,
+    pageWidth: window.innerWidth
+};
 
 SimplyPage.propTypes = {
-    children: PropTypes.node.isRequired
+    active: PropTypes.bool,
+    children: PropTypes.node.isRequired,
+    pageWidth: PropTypes.number
 };
 
 export default SimplyPage;
