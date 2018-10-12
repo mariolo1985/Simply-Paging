@@ -8,3 +8,8 @@ yarn.lock
 webpack.config.js
 build
 demo
+.sass-cache
+.eslintignore
+.travis.yml
+.Gruntfile.js
+readme.md

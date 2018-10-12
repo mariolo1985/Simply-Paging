@@ -1,0 +1,1 @@
+export SimplyPaging from './SimplyPaging';
