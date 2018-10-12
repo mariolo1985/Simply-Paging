@@ -1,16 +1,16 @@
 {
   "name": "simply-paging",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "A simple ReactJS component that adds paging functionality to your component",
   "main": "dist/index.js",
   "scripts": {
     "bounce": "rm -rf node_modules;yarn",
     "build:component": "babel --minified ./src --out-dir ./build",
     "build:component:dev": "babel ./src --out-dir ./build",
-    "build:css": "sass -s compressed ./src/scss/master.scss ./dist/css/master.min.css",
+    "build:css": "sass --style compressed ./src/scss/master.scss ./dist/css/master.min.css",
     "build:dev": "yarn build:css && yarn build:component:dev && yarn copytodist",
     "build": "yarn build:css && yarn build:component && yarn copytodist",
-    "copytodist": "copyfiles -u 1 build/* build/components/SimplyPaging/* src/scss/* dist"
+    "copytodist": "copyfiles -u 1 build/* build/components/SimplyPaging/* src/scss/* src/less/* dist"
   },
   "repository": {
     "type": "git",
