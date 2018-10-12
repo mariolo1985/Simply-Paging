@@ -10,14 +10,14 @@ module.exports = function (grunt) {
                 ],
             },
             dist: {
-                src: ['src/js/index.js'],
-                dest: 'dist/js/index.js'
+                src: ['src/components/SimplyPaging/SimplyPaging.js'],
+                dest: 'build/index.js'
             }
         },
         uglify: {
             build: {
-                src: 'dist/js/index.js',
-                dest: 'dist/js/index.js'
+                src: 'build/index.js',
+                dest: 'dist/index.js'
             }
         },
         less: {
@@ -39,7 +39,12 @@ module.exports = function (grunt) {
             prod: {
                 files: [
                     { expand: true, cwd: 'src/', src: 'less/*', dest: 'dist/' },
-                    { src: 'package.json', dest: 'dist/' }
+                    { expand: true, cwd: 'src/', src: 'scss/*', dest: 'dist/' }
+                ]
+            },
+            src: {
+                files: [
+                    { expand: true, cwd: 'src/', src: '**', dest: 'dist/' }
                 ]
             }
         },
@@ -83,6 +88,9 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('test', [
-        'copy:prod',
+        'clean:prod',
+        'copy:src',
+        'less:prod',
+        'copy:prod'
     ]);
 };

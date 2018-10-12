@@ -4,6 +4,10 @@
         "browser": true
     },
     "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true
+    },
     "rules": { // comma stuff
         "comma-dangle": [
             "error",
