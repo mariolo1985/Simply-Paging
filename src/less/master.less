@@ -1,0 +1,84 @@
+.clear:before,
+.clear:after {
+    display: table;
+    content: '';
+    clear: both;
+}
+
+// each page content
+.simply-page {
+    display: block;
+    height: 100vh;
+}
+
+// controls
+.simply-paging-controls {
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    &.vertical {
+        top: 0;
+        height: 100vh;
+        .simply-paging-control-wrapper {
+            float: none;
+            height: 50vh;
+            width: 100%;
+            &.prev {
+                text-align: center;
+            }
+            &.next {
+                text-align: center;
+            }
+        }
+        .simply-paging-control {
+            position: absolute;
+            left: 50%;
+            transform: rotate(90deg);
+            margin: 0;
+        }
+        .simply-page-prev {
+            top: 12px;
+        }
+        .simply-page-next {
+            bottom: 12px;
+        }
+    } // default - left/right
+    .simply-paging-control-wrapper {
+        float: left;
+        width: 50%;
+        &.prev {
+            text-align: left;
+        }
+        &.next {
+            text-align: right;
+        }
+    }
+    .simply-page-prev {
+        margin-left: 12px;
+    }
+    .simply-page-next {
+        margin-right: 12px;
+    }
+}
+
+.simply-paging-control-wrapper {
+    svg {
+        width: 24px;
+        height: 38px;
+    }
+}
+
+.simply-paging-control {
+    display: inline-block;
+    height: 38px;
+    padding: 12px 6px;
+    box-shadow: 0px 0px 0px 2px rgba(171, 171, 171, 0.5);
+    background: rgb(84, 80, 80);
+    cursor: pointer;
+    &.disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
+
+// media
