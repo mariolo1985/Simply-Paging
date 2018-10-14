@@ -4,7 +4,7 @@
   "description": "A vertical focused ReactJS carousel",
   "main": "dist/index.js",
   "scripts": {
-    "build": "SET NODE_ENV=production && yarn build:component && grunt prod",
+    "build": "yarn build:component && grunt prod",
     "build:component": "babel --minified ./src --out-dir ./build",
     "build:component:dev": "babel ./src --out-dir ./build",
     "build:dev": "yarn build:component:dev && grunt dev"
