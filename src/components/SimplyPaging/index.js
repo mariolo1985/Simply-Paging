@@ -1,0 +1,1 @@
+import SimplyPaging from './SimplyPaging';

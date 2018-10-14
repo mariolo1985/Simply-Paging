@@ -6,11 +6,28 @@ module.exports = function (grunt) {
         browserify: {
             options: {
                 transform: [
-                    ["babelify"]
+                    ["babelify", {
+                        "presets": [
+                            "@babel/preset-env",
+                            "@babel/preset-react"
+                        ]
+                    }]
                 ],
+                plugin: [
+                    [
+                        "factor-bundle", {
+                            outputs: [
+                                'src/index.js',
+                                'src/components/SimplyPaging/*.js'
+                            ]
+                        }]
+                ]
             },
             dist: {
-                src: ['src/components/SimplyPaging/SimplyPaging.js'],
+                src: [
+                    'src/index.js',
+                    'src/components/SimplyPaging/*.js'
+                ],
                 dest: 'build/index.js'
             }
         },
@@ -42,9 +59,9 @@ module.exports = function (grunt) {
                     { expand: true, cwd: 'src/', src: 'scss/*', dest: 'dist/' }
                 ]
             },
-            src: {
+            dev: {
                 files: [
-                    { expand: true, cwd: 'src/', src: '**', dest: 'dist/' }
+                    { expand: true, cwd: 'build', src: '*.js', dest: 'dist/' }
                 ]
             }
         },
@@ -88,9 +105,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('test', [
-        'clean:prod',
-        'copy:src',
-        'less:prod',
-        'copy:prod'
+        'browserify',
+        'copy:dev'
     ]);
 };

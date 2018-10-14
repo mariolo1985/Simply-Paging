@@ -1,1 +1,1 @@
-module.exports.SimplyPaging = require('./components/SimplyPaging/SimplyPaging');
+export SimplyPaging from './components/SimplyPaging/SimplyPaging';
