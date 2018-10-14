@@ -1,6 +1,6 @@
 # Simply Paging
 
-A simple ReactJS component that adds paging functionality to your project.
+A vertical focused ReactJS carousel.
 
 A work-in-progress ReactJS module.
 
@@ -47,12 +47,19 @@ This will wrap your `.page` inside a content box of **100vh**. Paging controls w
 
 ## Styles
 
-At the moment, styles has to be add one of two ways:
+At the moment, styles can be add one of two ways:
 
 - Import the SCSS file
 
 ```javascript
 @import '/node_modules/simply-paging/dist/scss/master.scss';
+```
+
+
+- Import the LESS file
+
+```javascript
+@import '/node_modules/simply-paging/dist/less/master.less';
 ```
 
 - Copy the CSS directly from the following file
@@ -70,7 +77,7 @@ N/A
 | Parameter Name   | Type   | Required   | Default Value   | Description   |
 | --- | --- | --- | --- | --- |
 | children | node | true | null | Children nodes to display per page |
-| vertical | boolean | false | true | Paging up and down is on by default |
+| **WIP** vertical | boolean | false | true | Paging up and down is on by default |
 
 **children**
 

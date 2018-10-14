@@ -1,7 +1,6 @@
 src
 node_modules
 .babelrc
-.eslintrc.json
 .gitignore
 .npmignore
 .nvmrc
@@ -10,3 +9,8 @@ yarn.lock
 webpack.config.js
 build
 demo
+.sass-cache
+.eslintignore
+.travis.yml
+.Gruntfile.js
+readme.md
