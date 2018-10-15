@@ -10,6 +10,7 @@ src
 .travis.yml
 .nvmrc
 cleandist.js
+cleanpublish.js
 Gruntfile.js
 readme.md
 webpack.dev.js

@@ -9,7 +9,8 @@
     "build": "node cleandist.js && yarn babel:component && yarn less:prod",
     "build:dev": "node cleandist.js && yarn babel:component:dev && yarn less:dev",
     "less:dev": "webpack --config webpack.dev.js",
-    "less:prod": "webpack --config webpack.prod.js"
+    "less:prod": "webpack --config webpack.prod.js",
+    "publish": "node cleanpublish.js && yarn install && yarn build && npm publish"
   },
   "repository": {
     "type": "git",
