@@ -4,10 +4,12 @@
   "description": "A vertical focused ReactJS carousel",
   "main": "dist/index.js",
   "scripts": {
-    "build": "yarn build:component && grunt prod",
-    "build:component": "babel --minified ./src --out-dir ./build",
-    "build:component:dev": "babel ./src --out-dir ./build",
-    "build:dev": "yarn build:component:dev && grunt dev"
+    "babel:component": "babel --minified ./src --out-dir ./dist",
+    "babel:component:dev": "babel ./src --out-dir ./dist",
+    "build": "node cleandist.js && yarn babel:component && yarn less:prod",
+    "build:dev": "node cleandist.js && yarn babel:component:dev && yarn less:dev",
+    "less:dev": "webpack --config webpack.dev.js",
+    "less:prod": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -36,19 +38,24 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.3",
     "copyfiles": "^2.1.0",
+    "css-loader": "^1.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-defaults": "^9.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.10.0",
-    "grunt": "^1.0.3",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-less": "^2.0.0",
+    "fs-extra": "^7.0.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "path": "^0.12.7",
     "prop-types": "^15.6.1",
     "react": "^16.5.1",
-    "webpack": "^4.20.2"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   },
   "peerDependencies": {
     "prop-types": "*",
