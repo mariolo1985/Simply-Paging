@@ -16,7 +16,7 @@ yarn add simply-paging
 
 ![Demo][demo]
 
-[demo]: https://raw.githubusercontent.com/mariolo1985/Simply-Paging/fix/controlstyle/demo/images/demo_sm.gif "Simply Paging Demo"
+[demo]: https://raw.githubusercontent.com/mariolo1985/Simply-Paging/master/demo/images/demo_sm.gif "Simply Paging Demo"
 
 
 ## Example

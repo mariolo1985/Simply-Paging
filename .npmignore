@@ -17,3 +17,4 @@ webpack.dev.js
 webpack.prod.js
 yarn.lock
 dist/css/master.js
+yarn-error.log
